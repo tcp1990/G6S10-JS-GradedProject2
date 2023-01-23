@@ -1,5 +1,5 @@
 body{
-    background-color: grey;
+    background-color: whitesmoke;
 }
 
 .loginFormSection {
@@ -10,6 +10,7 @@ body{
     border-radius: 4px;
     padding: 40px;
     background-color: yellow;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 input {

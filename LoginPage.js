@@ -30,7 +30,7 @@ function OnLoginClick() {
 
     var storedPassword = localStorage.getItem("loginPassword");
 
-    if (userNameValue !== storedUserName) {
+    if (passwordValue !== storedPassword) {
         alert("Incorrect Password");
         passwordValue.focus();
         return false;
