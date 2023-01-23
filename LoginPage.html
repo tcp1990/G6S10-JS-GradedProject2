@@ -11,12 +11,12 @@
 
 <body>
 
-    <div class="loginForm">
+    <div class="loginFormSection">
 
-        <form>
-            <input type="text" name="U_name" placeholder="User Name" required><br />
+        <form name="LoginForm" onsubmit="return OnLoginClick()">
+            <input type="text" name="userNameField" placeholder="User Name" required><br />
 
-            <input type="password" name="pwd" placeholder="Password" required><br />
+            <input type="password" name="passwordField" placeholder="Password" required><br />
 
             <div class="buttonSection">
                 <button class="submitButton">Login</button>

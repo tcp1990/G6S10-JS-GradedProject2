@@ -2,7 +2,7 @@ body{
     background-color: grey;
 }
 
-.loginForm {
+.loginFormSection {
     position: absolute;
     top: 15%;
     left: 35%;
