@@ -34,7 +34,6 @@ function OnLoginClick() {
         alert("Incorrect Password");
         passwordValue.focus();
         return false;
-
     }
 
     return true;
