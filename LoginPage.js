@@ -36,5 +36,6 @@ function OnLoginClick() {
         return false;
     }
 
-    return true;
+    document.location.href='ResumePage.html';
+    return false;
 }
