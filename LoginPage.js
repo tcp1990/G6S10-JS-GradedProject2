@@ -1,4 +1,3 @@
-
 localStorage.setItem("loginUserName", "gluser");
 localStorage.setItem("loginPassword", "Test@123");
 
@@ -36,6 +35,15 @@ function OnLoginClick() {
         return false;
     }
 
-    document.location.href='ResumePage.html';
+    document.location.href = "ResumePage.html";
+    localStorage.setItem("loginStatus", "loggedIn");
     return false;
+}
+
+function checkLoggedInStatus() {
+    var storedLoginStatus = localStorage.getItem("loginStatus");
+
+    if ("loggedIn" === storedLoginStatus) {
+        document.location.href = "ResumePage.html";
+    }
 }
