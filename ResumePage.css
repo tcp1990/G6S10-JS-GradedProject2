@@ -42,8 +42,38 @@
 .bottomLeftColumn {
     width: 25%;
     background-color: pink;
+    margin: 10px;
 }
 
 .bottomRightColumn {
     width: 75%;
+}
+
+.personalInfoSection,
+.technicalSkillsSection,
+.hobbiesSection {
+    width: 100%;
+}
+
+#personalInfoTable,
+#technicalSkillsTable,
+#hobbiesTable {
+    width: 100%;
+}
+
+.sectionHead {
+    width: 100%;
+}
+
+.sectionHead tr th div {
+    background-color: lightgrey;
+    margin: 5%;
+    text-align: center;
+}
+
+#personalInfoTableBody tr td,
+#technicalSkillsTableBody tr td,
+#hobbiesTableBody tr td {
+    padding-right: 5%;
+    text-align: right;
 }

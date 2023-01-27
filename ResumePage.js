@@ -48,6 +48,7 @@ function butNextClicked() {
         }
     }
 }
+
 function butPreClicked() {
     if (searchbox.value.length > 0) {
         if (can_Index > 0) {
@@ -61,6 +62,7 @@ function butPreClicked() {
         }
     }
 }
+
 function searchString() {
     arr_Applied_for_filtered.length = 0;
     //alert(searchbox.value.length);
@@ -143,7 +145,7 @@ function displayResume(i) {
     str_achievements += "</ul>";
 
     document.getElementById("centre").innerHTML = str_work + str_projects + str_education + str_internship + str_achievements;
-    
+
     const mobileNumberValue = jsonResumeObj.resume[i].basics.phone;
     document.getElementById("mobileNumber").innerHTML = mobileNumberValue;
 
@@ -169,6 +171,4 @@ function displayResume(i) {
         strHobbies += "<tr><td>" + jsonHobbiesList[x] + "</td></tr>";
     }
     document.getElementById("hobbiesTableBody").innerHTML = strHobbies;
-
 }
-
