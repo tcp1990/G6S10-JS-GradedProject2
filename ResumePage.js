@@ -3,8 +3,12 @@ let jsonResumeObj;
 const arr_Applied_for = [];
 const arr_Applied_for_filtered = [];
 
+let jsonUrl = "./Data.json";
+//For testing in Chrome Browser
+//let jsonUrl = "https://api.npoint.io/aeddb50e5de8ef107bf0";
+
 $(document).ready(function (e) {
-    $.getJSON("./Data.json", function (data) {
+    $.getJSON(jsonUrl, function (data) {
 
         console.log(data);
 
