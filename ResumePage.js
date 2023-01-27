@@ -92,83 +92,87 @@ async function getText(file) {
 } */
 
 function displayResume(i) {
-    const userNameValue = jsonResumeObj.resume[i].basics.name;
-    document.getElementById("userName").innerHTML = userNameValue;
+    // const can_id = jsonResumeObj.resume[i].id;
+    // const can_image = jsonResumeObj.resume[i].basics.image;
+    // const can_address = jsonResumeObj.resume[i].basics.location.address;
+    // const can_postalCode = jsonResumeObj.resume[i].basics.location.postalCode;
+    // const can_city = jsonResumeObj.resume[i].basics.location.city;
+    // const can_state = jsonResumeObj.resume[i].basics.location.state;
+    // const can_skills_name = jsonResumeObj.resume[i].skills.name;
+    // const can_skills_level = jsonResumeObj.resume[i].skills.level;
 
-    const appliedForJobValue = jsonResumeObj.resume[i].basics.AppliedFor;
-    document.getElementById("appliedForJob").innerHTML = 'Applied For : ' + appliedForJobValue;
+    const userNameTextValue = jsonResumeObj.resume[i].basics.name;
+    document.getElementById("userName").innerHTML = userNameTextValue;
 
-    const can_id = jsonResumeObj.resume[i].id;
-    const can_image = jsonResumeObj.resume[i].basics.image;
-    const can_address = jsonResumeObj.resume[i].basics.location.address;
-    const can_postalCode = jsonResumeObj.resume[i].basics.location.postalCode;
-    const can_city = jsonResumeObj.resume[i].basics.location.city;
-    const can_state = jsonResumeObj.resume[i].basics.location.state;
-    const can_skills_name = jsonResumeObj.resume[i].skills.name;
-    const can_skills_level = jsonResumeObj.resume[i].skills.level;
-    const can_work = jsonResumeObj.resume[i].work;
-    const can_internship = jsonResumeObj.resume[i].Internship;
-    const can_projects = jsonResumeObj.resume[i].projects;
-    const can_education = jsonResumeObj.resume[i].education;
-    const can_achievements_Summary = jsonResumeObj.resume[i].achievements.Summary;
+    const appliedForJobTextValue = jsonResumeObj.resume[i].basics.AppliedFor;
+    document.getElementById("appliedForJob").innerHTML = 'Applied For : ' + appliedForJobTextValue;
 
-    let str_work = "<h3>Work Experience in Previous Company</h3><p><ul class='noBulletsList'>";
-    for (let x in can_work) {
-        str_work += "<li><b>" + x + ":</b> " + can_work[x] + "</li><br>";
+    const jsonWorkExperienceInfo = jsonResumeObj.resume[i].work;
+    let workExperienceTextValue = "<h3>Work Experience in Previous Company</h3><p><ul class='noBulletsList'>";
+    for (let x in jsonWorkExperienceInfo) {
+        workExperienceTextValue += "<li><b>" + x + ":</b> " + jsonWorkExperienceInfo[x] + "</li><br>";
     }
-    let substringToRemove = "<br>";
-    str_work = str_work.substring(0, str_work.length - substringToRemove.length)
-    str_work += "</ul></p>";
+    let subStringToRemoveInWorkInfo = "<br>";
+    workExperienceTextValue = workExperienceTextValue.substring(0, workExperienceTextValue.length - subStringToRemoveInWorkInfo.length);
+    workExperienceTextValue += "</ul></p>";
 
-    let str_projects = "<h3>Projects</h3>";
-    str_projects += "<p><ul class='noBulletsList'><li><b>" + can_projects["name"] + ": </b>" + can_projects["description"] + "</li></ul></p>";
+    const jsonProjectsInfo = jsonResumeObj.resume[i].projects;
+    let projectsTextValue = "<h3>Projects</h3>";
+    projectsTextValue += "<p><ul class='noBulletsList'><li><b>" + jsonProjectsInfo["name"] + ": </b>" + jsonProjectsInfo["description"] + "</li></ul></p>";
 
-    let str_education = "<h3>Education</h3><p><ul>";
-    for (let x in can_education) {
-        str_education += "<li><b>" + x + ": </b>";
-        for (let y in can_education[x])
-            str_education += can_education[x][y] + ",";
-        str_education += "</li>";
+    const jsonEducationInfo = jsonResumeObj.resume[i].education;
+    let educationTextValue = "<h3>Education</h3><p><ul>";
+    for (let x in jsonEducationInfo) {
+        educationTextValue += "<li><b>" + x + ": </b>";
+        for (let y in jsonEducationInfo[x]) {
+            educationTextValue += jsonEducationInfo[x][y] + ",";
+        }
+        let subStringToRemoveInWorkInfo = ",";
+        educationTextValue = educationTextValue.substring(0, educationTextValue.length - subStringToRemoveInWorkInfo.length);
+        educationTextValue += "</li>";
     }
-    str_education += "</ul></p>";
+    educationTextValue += "</ul></p>";
 
-    let str_internship = "<h3>Internship</h3><p><ul>";
-    for (let x in can_internship) {
-        str_internship += "<li><b>" + x + ": </b>" + can_internship[x] + "</li>";
+    const jsonInternshipInfo = jsonResumeObj.resume[i].Internship;
+    let internshipTextValue = "<h3>Internship</h3><p><ul>";
+    for (let x in jsonInternshipInfo) {
+        internshipTextValue += "<li><b>" + x + ": </b>" + jsonInternshipInfo[x] + "</li>";
     }
-    str_internship += "</ul></p>";
+    internshipTextValue += "</ul></p>";
 
-    let str_achievements = "<h3>Achievements</h3><p><ul>";
-    for (let x in can_achievements_Summary) {
-        str_achievements += "<li>" + can_achievements_Summary[x] + "</li>";
+    const jsonAchievementsInfo = jsonResumeObj.resume[i].achievements.Summary;
+    let achievementsTextValue = "<h3>Achievements</h3><p><ul>";
+    for (let x in jsonAchievementsInfo) {
+        achievementsTextValue += "<li>" + jsonAchievementsInfo[x] + "</li>";
     }
-    str_achievements += "</ul></p>";
+    achievementsTextValue += "</ul></p>";
 
-    document.getElementById("centre").innerHTML = str_work + str_projects + str_education + str_internship + str_achievements;
+    let bottomRightColumnContent = workExperienceTextValue + projectsTextValue + educationTextValue + internshipTextValue + achievementsTextValue;
+    document.getElementById("bottomRightColumnContent").innerHTML = bottomRightColumnContent;
 
-    const mobileNumberValue = jsonResumeObj.resume[i].basics.phone;
-    document.getElementById("mobileNumber").innerHTML = mobileNumberValue;
+    const mobileNumberTextValue = jsonResumeObj.resume[i].basics.phone;
+    document.getElementById("mobileNumber").innerHTML = mobileNumberTextValue;
 
-    const emailIdValue = jsonResumeObj.resume[i].basics.email;
-    document.getElementById("emailId").innerHTML = emailIdValue;
+    const emailIdTextValue = jsonResumeObj.resume[i].basics.email;
+    document.getElementById("emailId").innerHTML = emailIdTextValue;
 
-    const networkValue = jsonResumeObj.resume[i].basics.profiles.network;
-    const hrefUrlValue = jsonResumeObj.resume[i].basics.profiles.url;
+    const networkTextValue = jsonResumeObj.resume[i].basics.profiles.network;
+    const hrefUrlTextValue = jsonResumeObj.resume[i].basics.profiles.url;
     var linkedIn = document.getElementById("linkedIn");
-    linkedIn.innerHTML = networkValue;
-    linkedIn.setAttribute('href', hrefUrlValue);
+    linkedIn.innerHTML = networkTextValue;
+    linkedIn.setAttribute('href', hrefUrlTextValue);
 
     const jsonSkillsList = jsonResumeObj.resume[i].skills.keywords;
-    let strTechnical = "";
+    let technicalSkillsTextValue = "";
     for (let x in jsonSkillsList) {
-        strTechnical += "<tr><td>" + jsonSkillsList[x] + "</td></tr>";
+        technicalSkillsTextValue += "<tr><td>" + jsonSkillsList[x] + "</td></tr>";
     }
-    document.getElementById("technicalSkillsTableBody").innerHTML = strTechnical;
+    document.getElementById("technicalSkillsTableBody").innerHTML = technicalSkillsTextValue;
 
     const jsonHobbiesList = jsonResumeObj.resume[i].interests.hobbies;
-    let strHobbies = "";
+    let hobbiesTextValue = "";
     for (let x in jsonHobbiesList) {
-        strHobbies += "<tr><td>" + jsonHobbiesList[x] + "</td></tr>";
+        hobbiesTextValue += "<tr><td>" + jsonHobbiesList[x] + "</td></tr>";
     }
-    document.getElementById("hobbiesTableBody").innerHTML = strHobbies;
+    document.getElementById("hobbiesTableBody").innerHTML = hobbiesTextValue;
 }
