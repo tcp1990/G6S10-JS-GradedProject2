@@ -40,9 +40,12 @@
 }
 
 .bottomLeftColumn {
-    width: 25%;
-    background-color: pink;
+    width: 25%;    
     margin: 10px;
+}
+
+.bottomLeftInnerSection{
+    background-color: #FDDDE6;
 }
 
 .bottomRightColumn {
@@ -66,9 +69,9 @@
 }
 
 .sectionHead tr th div {
-    background-color: lightgrey;
+    background-color: grey;
     margin: 5%;
-    text-align: center;
+    text-align: left;
 }
 
 #personalInfoTableBody tr td,
