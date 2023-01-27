@@ -154,11 +154,13 @@ function displayResume(i) {
     document.getElementById("centre").innerHTML = str_work + str_projects + str_education + str_internship + str_achievements;
 
 
-    let str_personal_info = "<table><tr><th>Personal Information</th></tr>";
-    str_personal_info += "<tr><td>" + can_phone + "</td></tr>";
-    str_personal_info += "<tr><td>" + can_email + "</td></tr>";
-    str_personal_info += "<tr><td><a href='" + can_url + "'>" + can_network + "</a></td></tr>";
-    str_personal_info += "</table>";
+    document.getElementById("mobileNumber").innerHTML = can_phone;
+
+    document.getElementById("emailId").innerHTML = can_email;
+
+    var linkedIn = document.getElementById("linkedIn");
+    linkedIn.innerHTML = can_network;
+    linkedIn.setAttribute('href', can_url);
 
     let str_technical = "<table><tr><th>Technical Skills</th></tr>";
     for (let x in can_skills_keywords) {
@@ -173,6 +175,6 @@ function displayResume(i) {
     str_hobbies += "</table>";
 
 
-    document.getElementById("left").innerHTML = str_personal_info + str_technical + str_hobbies;
+    document.getElementById("left").innerHTML = str_technical + str_hobbies;
 
 }

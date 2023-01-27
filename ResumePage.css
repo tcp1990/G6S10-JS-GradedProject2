@@ -33,3 +33,17 @@
     font-weight: bold;
     text-align: center;
 }
+
+#bottomSection {
+    display: flex;
+    margin: 0;
+}
+
+.bottomLeftColumn {
+    width: 25%;
+    background-color: pink;
+}
+
+.bottomRightColumn {
+    width: 75%;
+}
