@@ -95,14 +95,10 @@ function displayResume(i) {
     const userNameValue = jsonResumeObj.resume[i].basics.name;
     const appliedForJobValue = jsonResumeObj.resume[i].basics.AppliedFor;
     const can_image = jsonResumeObj.resume[i].basics.image;
-    const can_email = jsonResumeObj.resume[i].basics.email;
-    const can_phone = jsonResumeObj.resume[i].basics.phone;
     const can_address = jsonResumeObj.resume[i].basics.location.address;
     const can_postalCode = jsonResumeObj.resume[i].basics.location.postalCode;
     const can_city = jsonResumeObj.resume[i].basics.location.city;
     const can_state = jsonResumeObj.resume[i].basics.location.state;
-    const can_network = jsonResumeObj.resume[i].basics.profiles.network;
-    const can_url = jsonResumeObj.resume[i].basics.profiles.url;
     const can_skills_name = jsonResumeObj.resume[i].skills.name;
     const can_skills_level = jsonResumeObj.resume[i].skills.level;
     const can_skills_keywords = jsonResumeObj.resume[i].skills.keywords;
@@ -154,19 +150,9 @@ function displayResume(i) {
     document.getElementById("centre").innerHTML = str_work + str_projects + str_education + str_internship + str_achievements;
 
 
-    document.getElementById("mobileNumber").innerHTML = can_phone;
+    updatePersonalInfo(jsonResumeObj.resume[i]);
 
-    document.getElementById("emailId").innerHTML = can_email;
-
-    var linkedIn = document.getElementById("linkedIn");
-    linkedIn.innerHTML = can_network;
-    linkedIn.setAttribute('href', can_url);
-
-    let str_technical = "<table><tr><th>Technical Skills</th></tr>";
-    for (let x in can_skills_keywords) {
-        str_technical += "<tr><td>" + can_skills_keywords[x] + "</td></tr>";
-    }
-    str_technical += "</table>";
+    updateTechnicalSkills(can_skills_keywords);
 
     let str_hobbies = "<table><tr><th>Hobbies</th></tr>";
     for (let x in can_interests_hobbies) {
@@ -175,6 +161,30 @@ function displayResume(i) {
     str_hobbies += "</table>";
 
 
-    document.getElementById("left").innerHTML = str_technical + str_hobbies;
+    document.getElementById("left").innerHTML = str_hobbies;
 
 }
+
+function updatePersonalInfo(resumeObj) {
+
+    const mobileNumberValue = resumeObj.basics.phone;
+    document.getElementById("mobileNumber").innerHTML = mobileNumberValue;
+
+    const emailIdValue = resumeObj.basics.email;
+    document.getElementById("emailId").innerHTML = emailIdValue;
+
+    const networkValue = resumeObj.basics.profiles.network;
+    const hrefUrlValue = resumeObj.basics.profiles.url;
+    var linkedIn = document.getElementById("linkedIn");
+    linkedIn.innerHTML = networkValue;
+    linkedIn.setAttribute('href', hrefUrlValue);
+}
+
+function updateTechnicalSkills(can_skills_keywords) {
+    let strTechnical = "";
+    for (let x in can_skills_keywords) {
+        strTechnical += "<tr><td>" + can_skills_keywords[x] + "</td></tr>";
+    }
+    document.getElementById("technicalSkillsTableBody").innerHTML = strTechnical;
+}
+
