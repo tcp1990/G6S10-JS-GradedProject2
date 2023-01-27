@@ -1,0 +1,25 @@
+#resumeSection{
+    margin: 5%;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#topSection{
+    display: flex;
+    background-color: #E1FBFF;
+    border-radius: 6px;
+    margin: 0;
+}
+
+.topLeftColumn {
+    width: 85%;
+}
+
+.topRightColumn {
+    width: 15%;
+}
+
+.topRightColumn img {
+    width: 100px;
+    height: 100px;
+}
