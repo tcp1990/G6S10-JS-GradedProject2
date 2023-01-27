@@ -92,8 +92,8 @@ async function getText(file) {
 function displayResume(i) {
     //let i=0;
     const can_id = jsonResumeObj.resume[i].id;
-    const can_Name = jsonResumeObj.resume[i].basics.name;
-    const can_AppliedFor = jsonResumeObj.resume[i].basics.AppliedFor;
+    const userNameValue = jsonResumeObj.resume[i].basics.name;
+    const appliedForJobValue = jsonResumeObj.resume[i].basics.AppliedFor;
     const can_image = jsonResumeObj.resume[i].basics.image;
     const can_email = jsonResumeObj.resume[i].basics.email;
     const can_phone = jsonResumeObj.resume[i].basics.phone;
@@ -115,11 +115,8 @@ function displayResume(i) {
     const can_achievements_Summary = jsonResumeObj.resume[i].achievements.Summary;
     const can_interests_hobbies = jsonResumeObj.resume[i].interests.hobbies;
 
-
-    let str = ' <div><b> ' + can_Name + '</b><br> <span> </span><b>Applied For : ' + can_AppliedFor + '</div> ';
-
-
-    document.getElementById("top").innerHTML = str;
+    document.getElementById("userName").innerHTML = userNameValue;
+    document.getElementById("appliedForJob").innerHTML = 'Applied For : ' + appliedForJobValue;
 
 
     let str_work = "<h3>Work Experience in Previous Company</h3><table><tr><th></th></tr>";
