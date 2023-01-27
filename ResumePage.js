@@ -90,10 +90,13 @@ async function getText(file) {
 } */
 
 function displayResume(i) {
-    //let i=0;
-    const can_id = jsonResumeObj.resume[i].id;
     const userNameValue = jsonResumeObj.resume[i].basics.name;
+    document.getElementById("userName").innerHTML = userNameValue;
+
     const appliedForJobValue = jsonResumeObj.resume[i].basics.AppliedFor;
+    document.getElementById("appliedForJob").innerHTML = 'Applied For : ' + appliedForJobValue;
+
+    const can_id = jsonResumeObj.resume[i].id;
     const can_image = jsonResumeObj.resume[i].basics.image;
     const can_address = jsonResumeObj.resume[i].basics.location.address;
     const can_postalCode = jsonResumeObj.resume[i].basics.location.postalCode;
@@ -101,19 +104,11 @@ function displayResume(i) {
     const can_state = jsonResumeObj.resume[i].basics.location.state;
     const can_skills_name = jsonResumeObj.resume[i].skills.name;
     const can_skills_level = jsonResumeObj.resume[i].skills.level;
-    const can_skills_keywords = jsonResumeObj.resume[i].skills.keywords;
-
     const can_work = jsonResumeObj.resume[i].work;
     const can_internship = jsonResumeObj.resume[i].Internship;
     const can_projects = jsonResumeObj.resume[i].projects;
     const can_education = jsonResumeObj.resume[i].education;
-
     const can_achievements_Summary = jsonResumeObj.resume[i].achievements.Summary;
-    const can_interests_hobbies = jsonResumeObj.resume[i].interests.hobbies;
-
-    document.getElementById("userName").innerHTML = userNameValue;
-    document.getElementById("appliedForJob").innerHTML = 'Applied For : ' + appliedForJobValue;
-
 
     let str_work = "<h3>Work Experience in Previous Company</h3><table><tr><th></th></tr>";
     for (let x in can_work) {
@@ -148,43 +143,32 @@ function displayResume(i) {
     str_achievements += "</ul>";
 
     document.getElementById("centre").innerHTML = str_work + str_projects + str_education + str_internship + str_achievements;
-
-
-    updatePersonalInfo(jsonResumeObj.resume[i]);
-
-    updateTechnicalSkills(can_skills_keywords);
-
-    let str_hobbies = "<table><tr><th>Hobbies</th></tr>";
-    for (let x in can_interests_hobbies) {
-        str_hobbies += "<tr><td>" + can_interests_hobbies[x] + "</td></tr>";
-    }
-    str_hobbies += "</table>";
-
-
-    document.getElementById("left").innerHTML = str_hobbies;
-
-}
-
-function updatePersonalInfo(resumeObj) {
-
-    const mobileNumberValue = resumeObj.basics.phone;
+    
+    const mobileNumberValue = jsonResumeObj.resume[i].basics.phone;
     document.getElementById("mobileNumber").innerHTML = mobileNumberValue;
 
-    const emailIdValue = resumeObj.basics.email;
+    const emailIdValue = jsonResumeObj.resume[i].basics.email;
     document.getElementById("emailId").innerHTML = emailIdValue;
 
-    const networkValue = resumeObj.basics.profiles.network;
-    const hrefUrlValue = resumeObj.basics.profiles.url;
+    const networkValue = jsonResumeObj.resume[i].basics.profiles.network;
+    const hrefUrlValue = jsonResumeObj.resume[i].basics.profiles.url;
     var linkedIn = document.getElementById("linkedIn");
     linkedIn.innerHTML = networkValue;
     linkedIn.setAttribute('href', hrefUrlValue);
-}
 
-function updateTechnicalSkills(can_skills_keywords) {
+    const jsonSkillsList = jsonResumeObj.resume[i].skills.keywords;
     let strTechnical = "";
-    for (let x in can_skills_keywords) {
-        strTechnical += "<tr><td>" + can_skills_keywords[x] + "</td></tr>";
+    for (let x in jsonSkillsList) {
+        strTechnical += "<tr><td>" + jsonSkillsList[x] + "</td></tr>";
     }
     document.getElementById("technicalSkillsTableBody").innerHTML = strTechnical;
+
+    const jsonHobbiesList = jsonResumeObj.resume[i].interests.hobbies;
+    let strHobbies = "";
+    for (let x in jsonHobbiesList) {
+        strHobbies += "<tr><td>" + jsonHobbiesList[x] + "</td></tr>";
+    }
+    document.getElementById("hobbiesTableBody").innerHTML = strHobbies;
+
 }
 
