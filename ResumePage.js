@@ -112,37 +112,37 @@ function displayResume(i) {
     const can_education = jsonResumeObj.resume[i].education;
     const can_achievements_Summary = jsonResumeObj.resume[i].achievements.Summary;
 
-    let str_work = "<h3>Work Experience in Previous Company</h3><table><tr><th></th></tr>";
+    let str_work = "<h3>Work Experience in Previous Company</h3><p><ul class='noBulletsList'>";
     for (let x in can_work) {
-        str_work += "<tr><td><b>" + x + ":</b>" + can_work[x] + "</td></tr>";
+        str_work += "<li><b>" + x + ":</b> " + can_work[x] + "</li><br>";
     }
-    str_work += "</table>";
+    let substringToRemove = "<br>";
+    str_work = str_work.substring(0, str_work.length - substringToRemove.length)
+    str_work += "</ul></p>";
 
+    let str_projects = "<h3>Projects</h3>";
+    str_projects += "<p><ul class='noBulletsList'><li><b>" + can_projects["name"] + ": </b>" + can_projects["description"] + "</li></ul></p>";
 
-    let str_projects = "<P><ul><h3>Projects</h3>";
-    str_projects += "<li><b>" + can_projects["name"] + ": </b>" + can_projects["description"] + "</li>";
-    str_projects += "</ul>";
-
-    let str_education = "<P><ul><h4>Education</h4>";
+    let str_education = "<h3>Education</h3><p><ul>";
     for (let x in can_education) {
         str_education += "<li><b>" + x + ": </b>";
         for (let y in can_education[x])
             str_education += can_education[x][y] + ",";
         str_education += "</li>";
     }
-    str_education += "</ul>";
+    str_education += "</ul></p>";
 
-    let str_internship = "<P><ul><h4>Internship</h4>";
+    let str_internship = "<h3>Internship</h3><p><ul>";
     for (let x in can_internship) {
         str_internship += "<li><b>" + x + ": </b>" + can_internship[x] + "</li>";
     }
-    str_internship += "</ul>";
+    str_internship += "</ul></p>";
 
-    let str_achievements = "<P><ul><h4>Achievements</h4>";
+    let str_achievements = "<h3>Achievements</h3><p><ul>";
     for (let x in can_achievements_Summary) {
         str_achievements += "<li>" + can_achievements_Summary[x] + "</li>";
     }
-    str_achievements += "</ul>";
+    str_achievements += "</ul></p>";
 
     document.getElementById("centre").innerHTML = str_work + str_projects + str_education + str_internship + str_achievements;
 
