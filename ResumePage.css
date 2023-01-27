@@ -18,11 +18,21 @@
 
 .topRightColumn {
     width: 15%;
+    text-align: left;
+    position: relative;
+}
+
+.verticalCenter {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .topRightColumn img {
-    width: 150px;
-    height: 150px;
+    width: 80%;
+    height: 80px;
 }
 
 #userName {
@@ -40,11 +50,11 @@
 }
 
 .bottomLeftColumn {
-    width: 25%;    
+    width: 25%;
     margin: 10px;
 }
 
-.bottomLeftInnerSection{
+.bottomLeftInnerSection {
     background-color: #FDDDE6;
 }
 
