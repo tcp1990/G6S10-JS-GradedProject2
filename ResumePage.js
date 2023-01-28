@@ -17,7 +17,7 @@ let can_Index = 0;
 /* direct loading of json gives CORS error in some browser */
 let jsonUrl = "./Data.json";
 
-/* To avoid CORS error while loading above local json either enable local data loading in that browser or
+/* To avoid CORS error while loading above local json either enable local json data loading in that browser or
 un-comment below 'jsonUrl' value assignment */
 //jsonUrl = "https://api.npoint.io/aeddb50e5de8ef107bf0";
 
