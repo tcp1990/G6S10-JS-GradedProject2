@@ -111,3 +111,7 @@
 .noBulletsList {
     list-style-type: none;
 }
+
+.noResumeSection{
+    text-align: center;
+}

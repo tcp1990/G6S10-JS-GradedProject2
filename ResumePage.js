@@ -111,7 +111,7 @@ function searchString() {
         buttonNext.style.visibility = 'hidden';
         buttonPrevious.style.visibility = 'hidden';
         resumecode = document.getElementById("resumeSection").innerHTML;
-        document.getElementById("resumeSection").innerHTML = "<div> <img src='Images/NoResume.jpg' alt='No Results'></div>"
+        document.getElementById("resumeSection").innerHTML = "<div class='noResumeSection'> <img src='Images/NoResume.jpg' alt='No Results'></div>"
     }
 }
 
