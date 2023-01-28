@@ -6,18 +6,6 @@ function OnLoginClick() {
     var userNameValue = document.forms.LoginForm.userNameField.value;
     var passwordValue = document.forms.LoginForm.passwordField.value;
 
-    if (userNameValue == "") {
-        window.alert("Please enter your username");
-        userNameValue.focus();
-        return false;
-    }
-
-    if (passwordValue == "") {
-        alert("Please enter your password");
-        passwordValue.focus();
-        return false;
-    }
-
     var storedUserName = localStorage.getItem("loginUserName");
     var storedPassword = localStorage.getItem("loginPassword");
 
