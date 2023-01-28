@@ -1,22 +1,13 @@
 localStorage.setItem("loginUserName", "gluser");
 localStorage.setItem("loginPassword", "Test@123");
 
-
 function OnLoginClick() {
 
     var userNameValue = document.forms.LoginForm.userNameField.value;
     var passwordValue = document.forms.LoginForm.passwordField.value;
 
     if (userNameValue == "") {
-        window.alert("Please enter your username properly.");
-        userNameValue.focus();
-        return false;
-    }
-
-    var storedUserName = localStorage.getItem("loginUserName");
-
-    if (userNameValue !== storedUserName) {
-        window.alert("Invalid User");
+        window.alert("Please enter your username");
         userNameValue.focus();
         return false;
     }
@@ -27,22 +18,22 @@ function OnLoginClick() {
         return false;
     }
 
+    var storedUserName = localStorage.getItem("loginUserName");
     var storedPassword = localStorage.getItem("loginPassword");
 
-    if (passwordValue !== storedPassword) {
-        alert("Incorrect Password");
-        passwordValue.focus();
+    if (userNameValue !== storedUserName ||
+        passwordValue !== storedPassword) {
+        window.alert("Invalid UserName/Password");
         return false;
     }
 
     document.location.href = "ResumePage.html";
-    localStorage.setItem("loginStatus", "loggedIn");
+    sessionStorage.setItem("loginStatus", "loggedIn");
     return false;
 }
 
 function checkLoggedInStatus() {
-    var storedLoginStatus = localStorage.getItem("loginStatus");
-
+    var storedLoginStatus = sessionStorage.getItem("loginStatus");
     if ("loggedIn" === storedLoginStatus) {
         document.location.href = "ResumePage.html";
     }
