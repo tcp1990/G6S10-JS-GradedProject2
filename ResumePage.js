@@ -14,13 +14,14 @@ searchbox.addEventListener("change", searchString);
 
 let can_Index = 0;
 
-//not using direct data file due to CORS error in Chrome browser
-//let jsonUrl = "./Data.json";
+/* direct loading of json gives CORS error in some browser */
+let jsonUrl = "./Data.json";
 
-//Data.json file is hosted in below path and hence reading from this url to avoid CORS error
-let jsonUrl = "https://api.npoint.io/aeddb50e5de8ef107bf0";
+/* To avoid CORS error while loading above local json either enable local data loading in that browser or
+un-comment below 'jsonUrl' value assignment */
+//jsonUrl = "https://api.npoint.io/aeddb50e5de8ef107bf0";
 
-//using jquery to load json data
+/* using jquery to load json data */
 // $(document).ready(function (e) {
 //     $.getJSON(jsonUrl, function (data) {
 //         jsonResumeObj = data;
@@ -36,7 +37,6 @@ let jsonUrl = "https://api.npoint.io/aeddb50e5de8ef107bf0";
 //         }
 //     });
 // });
-
 
 getText(jsonUrl);
 
@@ -55,7 +55,6 @@ async function getText(file) {
         Alert(" No resume avaialble");
     }
 }
-
 
 function buttonNextClicked() {
     let max_Index = 0;
@@ -114,8 +113,6 @@ function searchString() {
         document.getElementById("resumeSection").innerHTML = "<div class='noResumeSection'> <img src='Images/NoResume.jpg' alt='No Results'></div>"
     }
 }
-
-
 
 function displayResume(i) {
     const userNameTextValue = jsonResumeObj.resume[i].basics.name;
