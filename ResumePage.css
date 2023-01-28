@@ -1,3 +1,20 @@
+#searchNavigateSection {
+    text-align: center;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.previousButton {
+    margin-left: 10%;
+    float: left;
+}
+
+.nextButton {
+    margin-right: 10%;
+    float: right;
+}
+
 #resumeSection {
     margin: 5%;
     border: 1px solid black;
@@ -93,4 +110,4 @@
 
 .noBulletsList {
     list-style-type: none;
-  }
+}

@@ -25,17 +25,17 @@ $(document).ready(function (e) {
     });
 });
 
-const searchbox = document.querySelector(".SearchStr");
-const butNext = document.querySelector(".butNext");
-const butPre = document.querySelector(".butPrevious");
+const buttonPrevious = document.querySelector(".previousButton");
+const searchbox = document.querySelector(".searchTextBox");
+const buttonNext = document.querySelector(".nextButton");
 
-butPre.addEventListener("click", butPreClicked);
-butNext.addEventListener("click", butNextClicked);
+buttonPrevious.addEventListener("click", buttonPreviousClicked);
+buttonNext.addEventListener("click", buttonNextClicked);
 searchbox.addEventListener("change", searchString);
 
 
 let can_Index = 0;
-function butNextClicked() {
+function buttonNextClicked() {
     if (searchbox.value.length > 0) {
         if (can_Index < (arr_Applied_for_filtered.length - 1)) {
             can_Index++;
@@ -49,7 +49,7 @@ function butNextClicked() {
     }
 }
 
-function butPreClicked() {
+function buttonPreviousClicked() {
     if (searchbox.value.length > 0) {
         if (can_Index > 0) {
             can_Index--;
@@ -100,6 +100,19 @@ function displayResume(i) {
     // const can_state = jsonResumeObj.resume[i].basics.location.state;
     // const can_skills_name = jsonResumeObj.resume[i].skills.name;
     // const can_skills_level = jsonResumeObj.resume[i].skills.level;
+
+    if (i === 0) {
+        buttonPrevious.style.visibility = 'hidden';
+    } else {
+        buttonPrevious.style.visibility = 'visible';
+    }
+
+    let lastIndex = jsonResumeObj.resume.length - 1;
+    if (i === lastIndex) {
+        buttonNext.style.visibility = 'hidden';
+    } else {
+        buttonNext.style.visibility = 'visible';
+    }
 
     const userNameTextValue = jsonResumeObj.resume[i].basics.name;
     document.getElementById("userName").innerHTML = userNameTextValue;

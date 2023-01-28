@@ -11,13 +11,12 @@
 </head>
 
 <body>
-    <p>
-        <a href=# class='butPrevious'> Previous</a>
-        <input type="text" placeholder="Search for keywor to filter the results" autofocus class="SearchStr">
-        <a href=# class='butNext'>Next</a>
-    </p>
-
-    <Section id="resumeSection">
+    <section id="searchNavigateSection">
+        <button class='previousButton'>Previous</button>
+        <input type="text" placeholder="Search for keywords to filter the results" autofocus class="searchTextBox">
+        <button class='nextButton'>Next</button>
+    </section>
+    <section id="resumeSection">
         <article id="topSection">
             <div class="topLeftColumn">
                 <br>
@@ -87,7 +86,7 @@
                 <p id="bottomRightColumnContent"></p>
             </div>
         </article>
-    </Section>
+    </section>
 
     <script src="ResumePage.js"></script>
 </body>
